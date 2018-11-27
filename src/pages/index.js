@@ -13,9 +13,9 @@ class IndexPage extends React.Component {
   }
 
   changeProductArrived(item) {
+    if (item.Arrived) return
     let itemToChange = myData.Items.find(i => i.Name === item.Name)
     itemToChange.Arrived = !item.Arrived
-    console.log(myData.Items)
     this.forceUpdate()
   }
 
@@ -103,7 +103,7 @@ class IndexPage extends React.Component {
           <button
             className={
               props.value === 'Yes'
-                ? 'btn btn-primary'
+                ? 'btn btn-primary disabled'
                 : 'btn btn-outline-primary'
             }
             onClick={() => this.changeProductArrived(props.original)}
@@ -129,6 +129,11 @@ class IndexPage extends React.Component {
           columns={columns}
           defaultPageSize={10}
           classsName="-striped -highlight"
+          getTdProps={() => ({
+            style: {
+              textAlign: 'center',
+            },
+          })}
         />
       </Layout>
     )
