@@ -134,6 +134,9 @@ class IndexPage extends React.Component {
               textAlign: 'center',
             },
           })}
+          getTheadFilterThProps={() => ({
+            className: 'form-control',
+          })}
         />
       </Layout>
     )
