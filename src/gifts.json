@@ -12,6 +12,7 @@
 		{
 			"Name": "Hoodie",
 			"For": "Dorota",
+			"Arrived": false,
 			"Tracking": {
 				"Number": "00459007738588795504",
 				"Url": null
@@ -21,6 +22,7 @@
 		{
 			"Name": "Massager",
 			"For": "Dorota",
+			"Arrived": false,
 			"Tracking": {
 				"Number": "LK000526043SK",
 				"Url": "https://www.1tracking.net/detail?nums=LK000526043SK"
@@ -29,6 +31,7 @@
 		{
 			"Name": "Munchkin",
 			"For": "Dorota",
+			"Arrived": false,
 			"Tracking": {
 				"Number": "00259007738483261308",
 				"Url": "https://emonitoring.poczta-polska.pl/?numer=00259007738483261308"
@@ -37,6 +40,7 @@
 		{
 			"Name": "Thermal cup",
 			"For": "Dorota",
+			"Arrived": false,
 			"Tracking": {
 				"Number": "LTN79427734N1",
 				"Url": "https://track.landmarkglobal.com/?trck=LTN79427734N1"
