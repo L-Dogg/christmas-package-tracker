@@ -22,7 +22,7 @@
 		{
 			"Name": "Massager",
 			"For": "Dorota",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "LK000526043SK",
 				"Url": "https://www.1tracking.net/detail?nums=LK000526043SK"
@@ -31,7 +31,7 @@
 		{
 			"Name": "Munchkin",
 			"For": "Dorota",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "00259007738483261308",
 				"Url": "https://emonitoring.poczta-polska.pl/?numer=00259007738483261308"
@@ -58,7 +58,7 @@
 		{
 			"Name": "Sony headphones",
 			"For": "Szymek",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "13917799360",
 				"Url": "https://www.amazon.de/progress-tracker/package/ref=pe_3044161_189395811_TE_SCE_?from=gp&itemId=&language=en_GB&orderId=028-9073319-4473158&packageIndex=0&shipmentId=11006449437302"
