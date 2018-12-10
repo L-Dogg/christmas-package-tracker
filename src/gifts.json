@@ -67,7 +67,7 @@
 		{
 			"Name": "Komiks timof",
 			"For": "Zuzia",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "0000131507595U",
 				"Url": "https://tracktrace.dpd.com.pl/parcelDetails?p1=0000131507595U&ID_kat=3&ID=33&Mark=18&przycisk=Wyszukaj"
@@ -76,7 +76,7 @@
 		{
 			"Name": "Komiks Piękna ciemność",
 			"For": "Zuzia",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "0000131518970U",
 				"Url": "https://tracktrace.dpd.com.pl/parcelDetails?p1=0000131518970U&ID_kat=3&ID=33&Mark=18&przycisk=Wyszukaj"
