@@ -1,27 +1,45 @@
 import React from 'react'
 import Layout from '../components/layout'
-import myData from '../gifts.json'
 
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import ReactLoading from 'react-loading'
 
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      items: [],
+    }
     this.changeProductArrived = this.changeProductArrived.bind(this)
+
+    this.apiBaseUrl = 'http://localhost:57227/'
   }
 
-  changeProductArrived(item) {
-    if (item.Arrived) return
-    let itemToChange = myData.Items.find(i => i.Name === item.Name)
-    itemToChange.Arrived = !item.Arrived
-    this.forceUpdate()
+  componentDidMount() {
+    this.getItems()
   }
 
   render() {
-    const people = Array.from(new Set(myData.Items.map(i => i.For)))
+    const items = this.state.items
 
+    if (items.length === 0) {
+      return (
+        <Layout>
+          <center>
+            <ReactLoading
+              type={'spin'}
+              color={'rebeccapurple'}
+              height={'25%'}
+              width={'25%'}
+            />
+          </center>
+        </Layout>
+      )
+    }
+
+    const people = Array.from(new Set(items.map(i => i.For)))
     const columns = [
       {
         Header: 'No',
@@ -34,11 +52,11 @@ class IndexPage extends React.Component {
       },
       {
         Header: 'Name',
-        accessor: 'Name',
+        accessor: 'name',
       },
       {
         Header: 'For',
-        accessor: 'For',
+        accessor: 'for',
         filterMethod: (filter, row) => {
           if (filter.value === 'all') {
             return true
@@ -64,21 +82,21 @@ class IndexPage extends React.Component {
       },
       {
         Header: 'Tracking number',
-        accessor: 'Tracking',
+        accessor: 'tracking',
         Cell: row => (
           <a
-            href={row.row.Tracking.Url}
+            href={row.row.tracking.url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {row.row.Tracking.Number}
+            {row.row.tracking.number}
           </a>
         ),
       },
       {
         id: 'arrived',
         Header: 'Arrived',
-        accessor: item => (item.Arrived ? 'Yes' : 'No'),
+        accessor: item => (item.arrived ? 'Yes' : 'No'),
         filterMethod: (filter, row) => {
           if (filter.value === 'all') {
             return true
@@ -103,7 +121,7 @@ class IndexPage extends React.Component {
           <button
             className={
               props.value === 'Yes'
-                ? 'btn btn-primary disabled'
+                ? 'btn btn-primary'
                 : 'btn btn-outline-primary'
             }
             onClick={() => this.changeProductArrived(props.original)}
@@ -117,8 +135,8 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <ReactTable
-          data={myData.Items.sort((a, b) =>
-            a.Arrived === b.Arrived ? 0 : a.Arrived ? 1 : -1
+          data={items.sort((a, b) =>
+            a.arrived === b.arrived ? 0 : a.arrived ? 1 : -1
           )}
           filterable
           defaultFilterMethod={(filter, row) =>
@@ -140,6 +158,32 @@ class IndexPage extends React.Component {
         />
       </Layout>
     )
+  }
+
+  changeProductArrived(item) {
+    let itemToChange = this.state.items.find(i => i.name === item.name)
+    if (itemToChange === undefined) return
+
+    fetch(
+      `${this.apiBaseUrl}api/packagetracking/setarrived?itemName=${item.name}&arrived=${!item.arrived}`,
+      {
+        method: 'PATCH',
+      }
+    )
+      .then(() => {
+        itemToChange.arrived = !item.arrived
+        this.forceUpdate()
+      })
+      .catch(error => console.log(error))
+  }
+
+  getItems() {
+    fetch(`${this.apiBaseUrl}api/packagetracking`)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ items: data.items })
+      })
+      .catch(error => console.log(error))
   }
 }
 
