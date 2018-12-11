@@ -103,7 +103,7 @@
 		{
 			"Name": "Kosmetyki z Sephory",
 			"For": "Mama",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "13493800598007",
 				"Url": "https://tracktrace.dpd.com.pl/parcelDetails?p1=13493800598007&przycisk=Wyszukaj&ID_kat=3&ID=33&Mark=18"
