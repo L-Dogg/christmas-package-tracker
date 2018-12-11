@@ -121,7 +121,7 @@
 		{
 			"Name": "Persona 5",
 			"For": "Wojtek",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "521000015801205052208787",
 				"Url": "https://inpost.pl/sledzenie-przesylek?number=521000015801205052208787"
