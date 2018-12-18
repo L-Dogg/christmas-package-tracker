@@ -40,7 +40,7 @@
 		{
 			"Name": "Thermal cup",
 			"For": "Dorota",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "LTN79427734N1",
 				"Url": "https://track.landmarkglobal.com/?trck=LTN79427734N1"
@@ -139,7 +139,7 @@
 		{
 			"Name": "Czajnik",
 			"For": "Babcia Henia",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "520000015497330010771556",
 				"Url": "https://inpost.pl/sledzenie-przesylek?number=520000015497330010771556"
@@ -157,7 +157,7 @@
 		{
 			"Name": "Kubek Pac-Man",
 			"For": "Piotrek",
-			"Arrived": false,
+			"Arrived": true,
 			"Tracking": {
 				"Number": "19951747766",
 				"Url": "https://sprawdz.dhl.com.pl/szukaj.aspx?m=0&sn=19951747766"
